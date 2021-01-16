@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">GOT-android</string>
+    <string name="mateusz_pu09">PU/09 - Zarządzanie odznakami</string>
+    <string name="mateusz_pu08">PU/08 - Przeglądanie profilu turysty</string>
+    <string name="michal_pu10">PU/10 - Dołączenie do wycieczki</string>
+    <string name="michal_pu16">PU/16 - Zarządzanie szlakami górskimi</string>
+    <string name="manage_trips">Zarządzaj wycieczkami</string>
+    <string name="manage_segments">Zarządzaj szlakami górskimi</string>
+    <string name="report_bugs">Zgłoszenia usterek</string>
+</resources>

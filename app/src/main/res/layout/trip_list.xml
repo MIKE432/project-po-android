@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.apusart.got_android.ui.components.HeaderView
+        android:id="@+id/trip_list_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:header_view_leading_icon="@drawable/back_icon128"
+        app:header_view_title="Dołącz do wycieczki"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
