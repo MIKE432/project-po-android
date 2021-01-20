@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.apusart.got_android.ui.add_segment.AddSegmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/container_background">
+
+        <com.apusart.got_android.ui.components.HeaderView
+            android:id="@+id/add_segment_form_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:header_view_leading_icon="@drawable/back_icon128"
+            app:header_view_title="Dodaj nowy odcinek"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/add_segment_form_header">
+
+            <com.apusart.got_android.ui.components.MainInput
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:hint="@string/segment_name_hint"
+                android:inputType="text"
+                app:main_input_input="@={viewModel.segmentNameText}" />
+
+
+            <com.apusart.got_android.ui.components.MainInput
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:hint="@string/start_point_id_hint"
+                android:inputType="number"
+
+                app:main_input_input="@={viewModel.segmentStartIdText}" />
+
+            <com.apusart.got_android.ui.components.MainInput
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:inputType="number"
+                android:gravity="center"
+                android:hint="@string/end_point_id_hint"
+                app:main_input_input="@={viewModel.segmentEndIdText}" />
+        </LinearLayout>
+
+        <com.apusart.got_android.ui.components.ProgressButton
+            android:id="@+id/add_segment_button_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:button_name="@string/add_segment"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

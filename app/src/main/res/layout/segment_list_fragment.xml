@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.apusart.got_android.ui.manage_segment.segment_list.SegmentListViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.apusart.got_android.ui.components.HeaderView
+            android:id="@+id/segment_list_fragment_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:header_view_leading_icon="@drawable/back_icon128"
+            app:header_view_title="Zarządzaj szlakami górskimi"
+            app:header_view_trailing_icon="@drawable/plus_icon64"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.apusart.got_android.ui.components.MainInput
+            android:id="@+id/segment_list_fragment_search_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:hint="To niezly hint"
+            app:layout_constraintTop_toBottomOf="@id/segment_list_fragment_header"
+            app:main_input_input="@={viewModel.searchText}" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/segment_list_fragment_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="30dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/segment_list_fragment_search_input" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

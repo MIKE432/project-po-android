@@ -7,4 +7,24 @@
     <string name="manage_trips">Zarządzaj wycieczkami</string>
     <string name="manage_segments">Zarządzaj szlakami górskimi</string>
     <string name="report_bugs">Zgłoszenia usterek</string>
+    <string name="email_address">Email address</string>
+    <string name="end_point_id_hint"><i>Identyfikator punktu końcowego</i></string>
+    <string name="start_point_id_hint"><i>Identyfikator punktu początkowego</i></string>
+    <string name="segment_id_hint"><i>Identyfikator odcinka</i></string>
+    <string name="segment_name_hint"><i>Nazwa odcinka</i></string>
+    <string name="segment_region_id_hint"><i>Region odcinka</i></string>
+    <string name="add_segment">Dodaj odcinek</string>
+    <string name="throw_changes">Porzucić zmiany?</string>
+    <string name="throw_changes_expl">Czy na pewno chcesz porzucić zmiany?</string>
+    <string name="yes">Tak</string>
+    <string name="abort">Anuluj</string>
+    
+    <string name="segment_name"><i>nazwa</i>: <b>%1$s</b></string>
+    <string name="segment_length"><i>długość</i>: <b>%1$s</b></string>
+    <string name="segment_id"><i>identyfikator</i>: <b>%1$d</b></string>
+    <string name="segment_status"><i>status</i>: <b>%1$s</b></string>
+    <string name="open_segment">Otwórz odcinek</string>
+    <string name="close_segment">Zamknij odcinek</string>
+    <string name="members">Uczestnicy</string>
+
 </resources>

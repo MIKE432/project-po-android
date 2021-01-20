@@ -8,14 +8,15 @@
         android:id="@+id/admin_panel_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:header_view_leading_icon="@drawable/back_icon128"
         app:layout_constraintTop_toTopOf="parent"
         app:header_view_title="Panel Administratora"/>
     <androidx.cardview.widget.CardView
-        android:id="@+id/manage_trips"
+        android:id="@+id/admin_panel_manage_trips"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/admin_panel_header"
-        app:layout_constraintBottom_toTopOf="@id/manage_accounts"
+        app:layout_constraintBottom_toTopOf="@id/admin_panel_manage_accounts"
         app:cardCornerRadius="10dp"
         android:layout_margin="10dp">
         <LinearLayout
@@ -35,11 +36,11 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
-        android:id="@+id/manage_accounts"
+        android:id="@+id/admin_panel_manage_accounts"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/manage_trips"
-        app:layout_constraintBottom_toTopOf="@id/manage_segments"
+        app:layout_constraintTop_toBottomOf="@id/admin_panel_manage_trips"
+        app:layout_constraintBottom_toTopOf="@id/admin_panel_manage_segments"
         app:cardCornerRadius="10dp"
         android:layout_margin="10dp">
         <LinearLayout
@@ -59,11 +60,11 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
-        android:id="@+id/manage_segments"
+        android:id="@+id/admin_panel_manage_segments"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/manage_accounts"
-        app:layout_constraintBottom_toTopOf="@id/report_bugs"
+        app:layout_constraintTop_toBottomOf="@id/admin_panel_manage_accounts"
+        app:layout_constraintBottom_toTopOf="@id/admin_panel_report_bugs"
         app:cardCornerRadius="10dp"
         android:layout_margin="10dp">
         <LinearLayout
@@ -83,10 +84,10 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
-        android:id="@+id/report_bugs"
+        android:id="@+id/admin_panel_report_bugs"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/manage_segments"
+        app:layout_constraintTop_toBottomOf="@id/admin_panel_manage_segments"
         app:layout_constraintBottom_toBottomOf="parent"
         app:cardBackgroundColor="@color/primary_900"
         app:cardCornerRadius="10dp"

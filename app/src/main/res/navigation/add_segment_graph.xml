@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/add_segment_graph"
+    app:startDestination="@id/segmentFormFragment">
+
+    <fragment
+        android:id="@+id/segmentFormFragment"
+        android:name="com.apusart.got_android.ui.add_segment.SegmentFormFragment"
+        android:label="SegmentFormFragment" />
+</navigation>

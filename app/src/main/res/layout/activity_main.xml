@@ -136,7 +136,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/Roboto14Pt"
-                android:text="Mateusz Groblicki"
+                android:text="Michał Raszczuk"
                 android:gravity="center"
                 android:textColor="@color/text_green"
                 />

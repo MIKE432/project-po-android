@@ -7,4 +7,23 @@
         android:id="@+id/adminPanel"
         android:name="com.apusart.got_android.ui.manage_segment.AdminPanel"
         android:label="AdminPanel" />
+    <fragment
+        android:id="@+id/segmentListFragment"
+        android:name="com.apusart.got_android.ui.manage_segment.segment_list.SegmentListFragment"
+        android:label="SegmentListFragment" >
+        <action
+            android:id="@+id/action_segmentListFragment_to_segmentDetails"
+            app:destination="@id/segmentDetails" />
+    </fragment>
+    <activity
+        android:id="@+id/addSegmentActivity"
+        android:name="com.apusart.got_android.ui.add_segment.AddSegmentActivity"
+        android:label="AddSegmentActivity" />
+    <fragment
+        android:id="@+id/segmentDetails"
+        android:name="com.apusart.got_android.ui.segment_details.SegmentDetails"
+        android:label="SegmentDetails">
+        <argument android:name="segmentId"
+            app:argType="integer" />
+    </fragment>
 </navigation>
