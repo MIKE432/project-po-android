@@ -2,7 +2,6 @@ package com.apusart.got_android.ui.segment_details
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -27,15 +26,15 @@ class SegmentDetails : Fragment(R.layout.segment_details) {
         viewModel.segment.observe(viewLifecycleOwner, { res ->
             handleResource(res,
                 onSuccess = {
-                    segment_details_region.text = it?.IdPoczatek?.KodGrupy?.Nazwa ?: "Brak"
-                    segment_details_name.text = it?.Nazwa ?: "Brak"
-                    segment_details_id.text = it?.IdOdc.toString()
-                    segment_details_length.text = it?.Dlugosc.toString() + "km"
-                    segment_details_start_point_id.text = it?.IdPoczatek?.IdPunktu.toString()
-                    segment_details_end_point_id.text = it?.IdPoczatek?.IdPunktu.toString()
+                    segment_details_region.text = it?.poczatek?.grupa?.nazwa ?: "Brak"
+                    segment_details_name.text = it?.nazwa ?: "Brak"
+                    segment_details_id.text = it?.id.toString()
+                    segment_details_length.text = it?.dlugosc.toString() + "km"
+                    segment_details_start_point_id.text = it?.poczatek?.id.toString()
+                    segment_details_end_point_id.text = it?.koniec?.id.toString()
 
                     segment_details_open_segment_btn.title =
-                        if (it?.CzyAktywny == true)
+                        if (it?.czyAktywny == true)
                             "Zamknij odcinek"
                         else
                             "Otwórz odcinek"
@@ -43,7 +42,7 @@ class SegmentDetails : Fragment(R.layout.segment_details) {
                     segment_details_open_segment_btn.transitionToStart()
                 }, onPending = {
                     segment_details_open_segment_btn.transitionToEnd()
-                }, onError = { _, _ ->
+                }, onError = { msg, _ ->
                     segment_details_open_segment_btn.transitionToStart()
                 })
         })

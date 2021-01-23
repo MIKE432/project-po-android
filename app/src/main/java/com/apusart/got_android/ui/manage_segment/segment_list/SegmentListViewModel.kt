@@ -10,8 +10,4 @@ class SegmentListViewModel: ViewModel() {
     val searchText = MutableLiveData<String>()
     val segments = segmentRepository.getSegments()
 
-
-    fun filterSegments() {
-
-    }
 }

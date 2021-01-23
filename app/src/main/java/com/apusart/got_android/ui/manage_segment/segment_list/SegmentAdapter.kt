@@ -11,11 +11,11 @@ import com.apusart.got_android.api.models.Segment
 class SegmentAdapter(private val navController: NavController): ListAdapter<Segment, SegmentViewHolder>(diffUtil) {
     object diffUtil: DiffUtil.ItemCallback<Segment>() {
         override fun areItemsTheSame(oldItem: Segment, newItem: Segment): Boolean {
-            return oldItem.IdOdc == newItem.IdOdc
+            return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(oldItem: Segment, newItem: Segment): Boolean {
-            return oldItem.IdOdc == newItem.IdOdc
+            return oldItem.id == newItem.id
         }
     }
 

@@ -11,11 +11,11 @@ import com.apusart.got_android.api.models.Trip
 class TripsAdapter(private val navController: NavController): ListAdapter<Trip, TripViewHolder>(diffUtil) {
     object diffUtil: DiffUtil.ItemCallback<Trip>() {
         override fun areItemsTheSame(oldItem: Trip, newItem: Trip): Boolean {
-            return oldItem.IdWycieczki == newItem.IdWycieczki
+            return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(oldItem: Trip, newItem: Trip): Boolean {
-            return oldItem.IdWycieczki == newItem.IdWycieczki
+            return oldItem.id == newItem.id
         }
 
     }

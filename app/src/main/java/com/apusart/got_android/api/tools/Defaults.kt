@@ -113,8 +113,8 @@ object Test {
         Trip(
             10,
             "W góry",
-            Date(2020, 11, 12),
-            Date(2020, 11, 14),
+            "dsa",
+            "dsa",
             listOf(),
             routes[0]
         )

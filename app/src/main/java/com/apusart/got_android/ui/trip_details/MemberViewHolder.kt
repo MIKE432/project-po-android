@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.member_list_item.view.*
 class MemberViewHolder(container: View): RecyclerView.ViewHolder(container) {
     fun bind(item: Person) {
         itemView.apply {
-            member_list_item_name.text = item.Imie + " " + item.Nazwisko
+            member_list_item_name.text = item.imie + " " + item.nazwisko
         }
     }
 }

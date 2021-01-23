@@ -20,11 +20,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpButtons() {
         mateusz_pu09.setOnClickListener {
-            Toast.makeText(this, "1", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "mateusz_pu09", Toast.LENGTH_LONG).show()
         }
 
         mateusz_pu08.setOnClickListener {
-            Toast.makeText(this, "2", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "mateusz_pu08", Toast.LENGTH_LONG).show()
         }
 
         michal_pu10.setOnClickListener {

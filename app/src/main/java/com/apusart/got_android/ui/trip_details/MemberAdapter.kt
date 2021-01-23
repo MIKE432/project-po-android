@@ -2,24 +2,20 @@ package com.apusart.got_android.ui.trip_details
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.NavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.apusart.got_android.R
 import com.apusart.got_android.api.models.Person
-import com.apusart.got_android.api.models.Segment
-import com.apusart.got_android.ui.manage_segment.segment_list.SegmentListFragmentDirections
-import com.apusart.got_android.ui.manage_segment.segment_list.SegmentViewHolder
 
 class MemberAdapter(): ListAdapter<Person, MemberViewHolder>(diffUtil) {
 
     object diffUtil: DiffUtil.ItemCallback<Person>() {
         override fun areItemsTheSame(oldItem: Person, newItem: Person): Boolean {
-            return oldItem.IdOsoby == newItem.IdOsoby
+            return false
         }
 
         override fun areContentsTheSame(oldItem: Person, newItem: Person): Boolean {
-            return oldItem.IdOsoby == newItem.IdOsoby
+            return false
         }
     }
 

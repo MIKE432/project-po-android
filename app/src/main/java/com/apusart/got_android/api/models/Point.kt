@@ -1,21 +1,22 @@
 package com.apusart.got_android.api.models
 
 data class Point(
-    val IdPunktu: Int,
-    val Nazwa: String,
-    val Wysokosc: Double,
-    val SzerokoscGeo: Double,
-    val DlugoscGeo: Double,
-    val KodGrupy: MountainGroup
+    val id: Int,
+    val nazwa: String,
+    val wysokosc: Double,
+    val szerokoscGeo: Double,
+    val dlugoscGeo: Double,
+    val grupa: MountainGroup
 )
 
 data class Region(
-    val IdReg: Int,
-    val Region: String
+    val id: Int,
+    val region: String
 )
+
 data class MountainGroup(
-    val KodGrupy: String,
-    val Nazwa: String,
-    val IdReg: Region
+    val kodGrupy: String,
+    val nazwa: String,
+    val region: Region
 )
 

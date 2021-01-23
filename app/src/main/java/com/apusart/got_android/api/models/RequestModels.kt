@@ -1,5 +1,9 @@
 package com.apusart.got_android.api.models
 
+import com.google.gson.GsonBuilder
+import retrofit2.Response
+import java.lang.Exception
+
 data class Resource<out T>(val status: Status, val data: T?, val message: String?) {
     enum class Status {
         SUCCESS,
@@ -34,5 +38,36 @@ fun <T> handleResource(
         Resource.Status.ERROR -> onError(res.message, res.data)
     }
 }
+
+suspend fun<T> performRequest(func: suspend () -> Response<T>): Resource<T> {
+    val response = func()
+
+    val body = response.body()
+    val errorBody = parseErrorBody(response.errorBody()?.string())
+
+    if (!response.isSuccessful)
+        return Resource.error(errorBody.message)
+
+    return Resource.success(body!!)
+}
+
+fun parseErrorBody(errorBody: String?): ErrorBody {
+    if (errorBody == null)
+        return ErrorBody()
+    val gson = GsonBuilder().create()
+
+    return try {
+        gson.fromJson(errorBody, ErrorBody::class.java)
+    } catch (x: Exception) {
+        ErrorBody(500, "Internal server error")
+    }
+
+}
+
+data class ErrorBody(
+    val code: Int? = -1,
+    val message: String? = ""
+)
+
 
 data class Touple<A, B>(val a: A, val b: B)

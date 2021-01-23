@@ -20,10 +20,14 @@ class SegmentRepository {
     }
 
     suspend fun openSegment(segmentId: Int): Resource<Segment> {
-        return segmentService.openSegment(segmentId)
+        return segmentService.toggleSegment(segmentId, true)
     }
 
     suspend fun closeSegment(segmentId: Int): Resource<Segment> {
-        return segmentService.closeSegment(segmentId)
+        return segmentService.toggleSegment(segmentId, false)
+    }
+
+    suspend fun addSegment(name: String, startPointId: Int, endPointId: Int): Resource<Unit> {
+        return segmentService.addSegment(name, startPointId, endPointId)
     }
 }

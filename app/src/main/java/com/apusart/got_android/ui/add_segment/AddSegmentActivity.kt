@@ -1,6 +1,7 @@
 package com.apusart.got_android.ui.add_segment
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -8,10 +9,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.apusart.got_android.R
+import com.apusart.got_android.api.models.handleResource
 import com.apusart.got_android.databinding.SegmentFormBinding
 import kotlinx.android.synthetic.main.segment_form.*
 
-class AddSegmentActivity: AppCompatActivity() {
+class AddSegmentActivity : AppCompatActivity() {
 
     private val viewModel: AddSegmentViewModel by viewModels()
     private lateinit var alertDialog: AlertDialog.Builder
@@ -19,8 +21,9 @@ class AddSegmentActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding: SegmentFormBinding = DataBindingUtil.setContentView(this, R.layout.segment_form)
-        binding.viewModel= viewModel
+        val binding: SegmentFormBinding =
+            DataBindingUtil.setContentView(this, R.layout.segment_form)
+        binding.viewModel = viewModel
         binding.lifecycleOwner = this
         setContentView(binding.root)
 
@@ -43,11 +46,25 @@ class AddSegmentActivity: AppCompatActivity() {
         viewModel.segmentEndIdText.observe(this, {
             add_segment_button_add.isDisabled = !viewModel.isFormValid()
         })
+
+        viewModel.segmentAdded.observe(this, { res ->
+            handleResource(res,
+                onSuccess = {
+                    Toast.makeText(this, "Dodano odcinek", Toast.LENGTH_LONG).show()
+                    finish()
+                    add_segment_button_add.transitionToStart()
+                }, onPending = {
+                    add_segment_button_add.transitionToEnd()
+                }, onError = { msg, _ ->
+                    Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
+                    add_segment_button_add.transitionToStart()
+                })
+        })
     }
 
     private fun setupOnClickListeners() {
         add_segment_button_add.setOnClickListener {
-            add_segment_button_add.transitionToEnd()
+            viewModel.addSegment()
         }
 
         add_segment_form_header.setOnLeadingIconClickListener {

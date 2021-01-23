@@ -20,8 +20,8 @@ class TripRepository {
         return service.getTrip(tripId)
     }
 
-    suspend fun joinTrip(tripId: Int): Resource<Boolean> {
-        val userId = 10
+    suspend fun joinTrip(tripId: Int): Resource<Unit> {
+        val userId = 3
         return service.joinTrip(tripId, userId)
     }
 }

@@ -26,5 +26,9 @@
     <string name="open_segment">Otwórz odcinek</string>
     <string name="close_segment">Zamknij odcinek</string>
     <string name="members">Uczestnicy</string>
+    <string name="join_to_trip_question">Czy na pewno chcesz tołączyć do wycieczki?</string>
+    <string name="lets_go">W drogę!</string>
+    <string name="remember_about_trip_must_haves">Pamiętaj o ciepłym ubraniu i świetnym chumorze! Widzimy się na szlaku!</string>
+    <string name="joined_to_trip">Gratulacje właśnie dołączyłeś do wycieczki!</string>
 
 </resources>
