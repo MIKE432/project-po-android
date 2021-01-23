@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/join_trip_activity.xml"
+    app:startDestination="@id/tripsListFragment">
+
+    <fragment
+        android:id="@+id/tripsListFragment"
+        android:name="com.apusart.got_android.ui.join_trip.trips_list.TripsListFragment"
+        android:label="TripsListFragment">
+        <action
+            android:id="@+id/action_tripsListFragment_to_tripDetails"
+            app:destination="@id/tripDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/tripDetails"
+        android:name="com.apusart.got_android.ui.trip_details.TripDetails"
+        android:label="TripDetails">
+        <argument
+            android:name="tripId"
+            app:argType="integer" />
+    </fragment>
+</navigation>

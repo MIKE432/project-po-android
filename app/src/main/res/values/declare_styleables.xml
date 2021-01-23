@@ -2,6 +2,7 @@
 <resources>
     <declare-styleable name="ProgressButton">
         <attr name="button_name" format="string" />
+        <attr name="android:background" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="InfoModal">
@@ -32,6 +33,7 @@
         <attr name="android:inputType" format="flags" />
         <attr name="edit_text_height" format="dimension" />
         <attr name="android:gravity" format="flags" />
+        <attr name="android:hint" format="string" />
     </declare-styleable>
 
     <declare-styleable name="HeaderView">
