@@ -30,5 +30,14 @@
     <string name="lets_go">W drogę!</string>
     <string name="remember_about_trip_must_haves">Pamiętaj o ciepłym ubraniu i świetnym chumorze! Widzimy się na szlaku!</string>
     <string name="joined_to_trip">Gratulacje właśnie dołączyłeś do wycieczki!</string>
+    <string name="achieved_order">Zdobyte odznaki</string>
+    <string name="recent_trips">Ostatnie wycieczki</string>
+    <string name="gained_points">Zdobyte punkty</string>
+    <string name="achieved_orders">Zdobyte odznaki</string>
+    <string name="motto">motto</string>
+    <string name="motto_text">Sukces nigdy nie jest efektem słomianego zapału, tutaj trzeba przejść przez prawdziwy ognień</string>
+    <string name="length">Dystans</string>
+    <string name="map">Mapa</string>
+    <string name="zdobyte_punkty_w_2020">Zdobyte punkty w 2020</string>
 
 </resources>

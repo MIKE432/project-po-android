@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/container_background"
+    android:orientation="vertical">
+
+    <com.apusart.got_android.ui.components.HeaderView
+        android:id="@+id/done_trip_fragment_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:header_view_leading_icon="@drawable/back_icon128"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                app:layout_constraintTop_toBottomOf="@id/done_trip_fragment_header"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@drawable/trip_top_background"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/TitleRoboto20Pt"
+                    android:textStyle="bold"
+                    tools:text="daddadsa"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="25sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginVertical="30dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/length"
+                        style="@style/TitleRoboto20Pt"
+                        android:textColor="@color/white" />
+                    <TextView
+                        android:id="@+id/done_trip_fragment_length"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/length"
+                        style="@style/TitleRoboto20Pt"
+                        android:gravity="end"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/length"
+                        style="@style/TitleRoboto20Pt"
+                        android:textColor="@color/white" />
+                    <TextView
+                        android:id="@+id/done_trip_fragment_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/length"
+                        style="@style/TitleRoboto20Pt"
+                        android:gravity="end"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <include layout="@layout/gained_points_profile_section"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/card_backgorund">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/card_header_background"
+                        android:textColor="@color/white"
+                        android:padding="5dp"
+                        style="@style/Roboto14Pt"
+                        android:text="@string/map"
+                        android:gravity="center"/>
+                    <com.apusart.got_android.ui.components.MapView
+                        android:id="@+id/done_trip_fragment_map"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_margin="10dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
