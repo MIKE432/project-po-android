@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import com.apusart.got_android.R
 import com.apusart.got_android.api.models.Trip
 
-class TripsAdapter(private val navController: NavController): ListAdapter<Trip, TripViewHolder>(diffUtil) {
+open class TripsAdapter(val navController: NavController): ListAdapter<Trip, TripViewHolder>(diffUtil) {
     object diffUtil: DiffUtil.ItemCallback<Trip>() {
         override fun areItemsTheSame(oldItem: Trip, newItem: Trip): Boolean {
             return oldItem.id == newItem.id

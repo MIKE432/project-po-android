@@ -14,6 +14,10 @@
             android:id="@+id/action_profileHome_to_profileTripsFragment"
             app:destination="@id/profileTripsFragment"
             app:popUpTo="@id/profileHome" />
+        <action
+            android:id="@+id/action_profileHome_to_achievedOrdersFragment"
+            app:destination="@id/achievedOrdersFragment"
+            app:popUpTo="@id/profileHome" />
     </fragment>
     <argument
         android:name="TouristId"
@@ -21,5 +25,25 @@
     <fragment
         android:id="@+id/profileTripsFragment"
         android:name="com.apusart.got_android.ui.tourist_profile.trips_list.ProfileTripsFragment"
-        android:label="ProfileTripsFragment" />
+        android:label="ProfileTripsFragment" >
+        <action
+            android:id="@+id/action_profileTripsFragment_to_profileTripsDetailsFragment"
+            app:destination="@id/profileTripsDetailsFragment" />
+        <action
+            android:id="@+id/action_profileTripsFragment_to_profileTripsDetailsFragment2"
+            app:destination="@id/profileTripsDetailsFragment"
+            app:popUpTo="@id/profileTripsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/achievedOrdersFragment"
+        android:name="com.apusart.got_android.ui.tourist_profile.achieved_orders.AchievedOrdersFragment"
+        android:label="AchievedOrdersFragment" />
+    <fragment
+        android:id="@+id/profileTripsDetailsFragment"
+        android:name="com.apusart.got_android.ui.tourist_profile.trips_list.ProfileTripsDetailsFragment"
+        android:label="ProfileTripsDetailsFragment" >
+        <argument
+            android:name="tripId"
+            app:argType="integer" />
+    </fragment><action android:id="@+id/action_global_profileTripsDetailsFragment" app:destination="@id/profileTripsDetailsFragment"/>
 </navigation>

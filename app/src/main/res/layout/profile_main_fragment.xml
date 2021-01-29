@@ -134,7 +134,7 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <include layout="@layout/achieved_orders" />
+            <include layout="@layout/achieved_orders" android:id="@+id/achievedOrdersSummary"/>
 
             <include layout="@layout/gained_points_profile_section" />
 

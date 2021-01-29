@@ -1,19 +1,17 @@
 package com.apusart.got_android.ui.tourist_profile
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.apusart.got_android.R
 import com.apusart.got_android.api.models.handleResource
-import com.apusart.got_android.ui.tourist_profile.trips_list.ProfileTripsFragment
-import kotlinx.android.synthetic.main.gained_points_fragment.view.*
 import kotlinx.android.synthetic.main.gained_points_profile_section.*
 import kotlinx.android.synthetic.main.profile_main_fragment.*
+import kotlinx.android.synthetic.main.trips_profile_section.*
 
 class ProfileFragment : Fragment(R.layout.profile_main_fragment) {
     private val viewModel: ProfileViewModel by viewModels()
@@ -32,8 +30,13 @@ class ProfileFragment : Fragment(R.layout.profile_main_fragment) {
         tripsSummary.setOnClickListener {
             findNavController().navigate(R.id.profileTripsFragment);
         }
+
+        achievedOrdersSummary.setOnClickListener {
+            findNavController().navigate(R.id.achievedOrdersFragment)
+        }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setupObservers() {
         viewModel.userData.observe(viewLifecycleOwner, { res ->
             handleResource(
@@ -43,7 +46,24 @@ class ProfileFragment : Fragment(R.layout.profile_main_fragment) {
                     textViewNumberBadges.text = it?.odznaki?.size.toString() ?: "0"
                     profile_name.text = it?.imie + " " + it?.nazwisko ?: ""
 
+                    val lastTrip = it?.wycieczki?.last()
+                    trips_profile_section_trip_name.text = lastTrip?.nazwa
+                    trips_profile_section_trip_date.text =
+                        lastTrip?.dataPocz?.replace("-", ".") + " - " + lastTrip?.dataKonc?.replace(
+                            "-",
+                            "."
+                        )
+
+                    var lastTripLength =
+                        lastTrip?.trasa?.odcinki?.fold(0.0) { acc, verifiedSegment -> acc + verifiedSegment.odcinek.dlugosc }
+
+                    if (lastTripLength != null) {
+                        lastTripLength /= 1000
+                    }
+
+                    trips_profile_section_trip_length.text = "%.2f".format(lastTripLength) + " km"
                 })
+
         })
     }
 }

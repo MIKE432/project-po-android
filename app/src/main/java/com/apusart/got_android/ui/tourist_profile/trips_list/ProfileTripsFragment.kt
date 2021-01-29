@@ -7,15 +7,24 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.apusart.got_android.R
 import com.apusart.got_android.api.models.handleResource
+import com.apusart.got_android.ui.join_trip.trips_list.TripListViewModel
+import com.apusart.got_android.ui.join_trip.trips_list.TripsAdapter
 import com.apusart.got_android.ui.tourist_profile.ProfileViewModel
 import kotlinx.android.synthetic.main.profile_trips_fragment.*
+import kotlinx.android.synthetic.main.trips_list_fragment.*
 
 class ProfileTripsFragment: Fragment(R.layout.profile_trips_fragment) {
     private val viewModel: ProfileViewModel by viewModels()
     val userID = 2
+    private lateinit var tripsAdapter: TripsAdapterProfile
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        tripsAdapter = TripsAdapterProfile(findNavController())
+        profile_trips_fragment_trips_list.apply {
+            adapter = tripsAdapter
+        }
         setupObservers()
         viewModel.getUserData(userID)
     }
@@ -27,11 +36,18 @@ class ProfileTripsFragment: Fragment(R.layout.profile_trips_fragment) {
             handleResource(
                 res, onSuccess = {
                     profile_trips_fragment_trips_count.text = it?.wycieczki?.size.toString()
+                    tripsAdapter.submitList(it?.wycieczki)
                 })
         })
 
         profile_trips_fragment_header.setOnLeadingIconClickListener {
             findNavController().popBackStack()
+        }
+    }
+
+    private fun setupOnClickListeners() {
+        trips_list_fragment_header.setOnLeadingIconClickListener {
+            requireActivity().finish()
         }
     }
 }

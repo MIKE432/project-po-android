@@ -28,6 +28,7 @@
                 android:background="@drawable/trip_top_background"
                 android:orientation="vertical">
                 <TextView
+                    android:id="@+id/doneTripName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     style="@style/TitleRoboto20Pt"
@@ -67,7 +68,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/length"
+                        android:text="@string/date"
                         style="@style/TitleRoboto20Pt"
                         android:textColor="@color/white" />
                     <TextView
@@ -82,7 +83,7 @@
 
 
             </LinearLayout>
-            <include layout="@layout/gained_points_profile_section"/>
+            <include layout="@layout/gained_points_profile_section" android:id="@+id/doneTripPoints"/>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
