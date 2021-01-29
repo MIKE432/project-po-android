@@ -9,20 +9,29 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.apusart.got_android.R
 import com.apusart.got_android.api.models.handleResource
+import com.apusart.got_android.ui.tourist_profile.order_list.OrdersAdapter
+import kotlinx.android.synthetic.main.achieved_orders.*
 import kotlinx.android.synthetic.main.gained_points_profile_section.*
 import kotlinx.android.synthetic.main.profile_main_fragment.*
 import kotlinx.android.synthetic.main.trips_profile_section.*
 
 class ProfileFragment : Fragment(R.layout.profile_main_fragment) {
     private val viewModel: ProfileViewModel by viewModels()
-    private val navArgs by navArgs<ProfileFragmentArgs>()
+    private lateinit var ordersAdapter: OrdersAdapter
     val userID = 2
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getUserData(userID)
+        ordersAdapter = OrdersAdapter(findNavController())
+
+        achieved_orders_list.apply {
+            adapter = ordersAdapter
+        }
+
         setupObservers()
         setupButtons()
+
+        viewModel.getUserData(userID)
         profile_about.setText(R.string.user_description)
     }
 
@@ -41,9 +50,12 @@ class ProfileFragment : Fragment(R.layout.profile_main_fragment) {
         viewModel.userData.observe(viewLifecycleOwner, { res ->
             handleResource(
                 res, onSuccess = {
+                    val achievedOrders =
+                        it?.odznaki?.filter { badge -> badge.dataPrzyznania != null }
+
                     gained_points_profile_section_points.text = it?.punktacja.toString() ?: "Brak"
                     textViewNumberTrips.text = it?.wycieczki?.size.toString() ?: "0"
-                    textViewNumberBadges.text = it?.odznaki?.size.toString() ?: "0"
+                    textViewNumberBadges.text = achievedOrders?.size.toString() ?: "0"
                     profile_name.text = it?.imie + " " + it?.nazwisko ?: ""
 
                     val lastTrip = it?.wycieczki?.last()
@@ -62,6 +74,8 @@ class ProfileFragment : Fragment(R.layout.profile_main_fragment) {
                     }
 
                     trips_profile_section_trip_length.text = "%.2f".format(lastTripLength) + " km"
+
+                    ordersAdapter.submitList(achievedOrders)
                 })
 
         })

@@ -21,9 +21,9 @@ enum class BadgeLevel(val typeId: Int) {
 
 data class Badge(
     val id: Int,
-    val dataPrzyznania: Date,
+    val dataPrzyznania: Date?,
     val wyPkt: Int,
-    val czyRozp: Boolean,
+    val czyRozp: Boolean?,
     val ksiazeczka: Int,
     val rodzaj: BadgeType,
     val stopien: BadgeLevel

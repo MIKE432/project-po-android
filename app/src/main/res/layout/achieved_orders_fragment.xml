@@ -43,7 +43,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/recent_trips"
+                android:text="@string/achieved_orders_number"
                 style="@style/CaptionRoboto12PtBlack"
                 android:gravity="center"
                 android:layout_marginTop="10dp"/>

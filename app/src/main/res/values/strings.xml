@@ -43,5 +43,6 @@
     <string name="badges_label">Zdobyte odznaki</string>
     <string name="user_description">Jestem pasjonatem wspinaczki górskiej oraz chodzienia po szlakach polskich gór</string>
     <string name="date">Data</string>
+    <string name="achieved_orders_number">Liczba zdobytych odznak</string>
 
 </resources>
