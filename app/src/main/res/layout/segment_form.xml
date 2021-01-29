@@ -38,24 +38,20 @@
                 app:main_input_input="@={viewModel.segmentNameText}" />
 
 
-            <com.apusart.got_android.ui.components.MainInput
+            <Spinner
+                android:id="@+id/add_segment_start_point"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:gravity="center"
-                android:hint="@string/start_point_id_hint"
-                android:inputType="number"
+                />
 
-                app:main_input_input="@={viewModel.segmentStartIdText}" />
-
-            <com.apusart.got_android.ui.components.MainInput
+            <Spinner
+                android:id="@+id/add_segment_end_point"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:inputType="number"
-                android:gravity="center"
-                android:hint="@string/end_point_id_hint"
-                app:main_input_input="@={viewModel.segmentEndIdText}" />
+                android:gravity="center" />
         </LinearLayout>
 
         <com.apusart.got_android.ui.components.ProgressButton

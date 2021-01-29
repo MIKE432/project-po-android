@@ -30,8 +30,8 @@ class SegmentDetails : Fragment(R.layout.segment_details) {
                     segment_details_name.text = it?.nazwa ?: "Brak"
                     segment_details_id.text = it?.id.toString()
                     segment_details_length.text = it?.dlugosc.toString() + "km"
-                    segment_details_start_point_id.text = it?.poczatek?.id.toString()
-                    segment_details_end_point_id.text = it?.koniec?.id.toString()
+                    segment_details_start_point_id.text = it?.poczatek?.nazwa
+                    segment_details_end_point_id.text = it?.koniec?.nazwa
 
                     segment_details_open_segment_btn.title =
                         if (it?.czyAktywny == true)
