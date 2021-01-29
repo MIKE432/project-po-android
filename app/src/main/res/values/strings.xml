@@ -39,5 +39,8 @@
     <string name="length">Dystans</string>
     <string name="map">Mapa</string>
     <string name="zdobyte_punkty_w_2020">Zdobyte punkty w 2020</string>
+    <string name="trips_label">Odbyte wycieczki</string>
+    <string name="badges_label">Zdobyte odznaki</string>
+    <string name="user_description">Jestem pasjonatem wspinaczki górskiej oraz chodzienia po szlakach polskich gór</string>
 
 </resources>

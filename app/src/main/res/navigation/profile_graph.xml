@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/profile_graph"
+    app:startDestination="@id/profileHome">
+
+    <fragment
+        android:id="@+id/profileHome"
+        android:name="com.apusart.got_android.ui.tourist_profile.ProfileFragment"
+        android:label="profileHome">
+        <argument
+            android:name="TouristId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_profileHome_to_profileTripsFragment"
+            app:destination="@id/profileTripsFragment"
+            app:popUpTo="@id/profileHome" />
+    </fragment>
+    <argument
+        android:name="TouristId"
+        android:defaultValue="1" />
+    <fragment
+        android:id="@+id/profileTripsFragment"
+        android:name="com.apusart.got_android.ui.tourist_profile.trips_list.ProfileTripsFragment"
+        android:label="ProfileTripsFragment" />
+</navigation>
