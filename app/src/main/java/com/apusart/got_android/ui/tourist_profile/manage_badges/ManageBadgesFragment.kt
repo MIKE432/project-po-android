@@ -59,6 +59,12 @@ class ManageBadgesFragment : Fragment(R.layout.manage_orders_fragment) {
                     gained_points_count.text = it?.punktacja.toString()
                     gained_points_label.text =
                         getString(R.string.gained_points_in_year) + " " + Year.now().value
+
+                    
+                    if (it?.odznaki?.isEmpty() == true) {
+                        showNoBadgesAlertDialog()
+                    }
+
                     val achievableOrders =
                         it?.odznaki?.filter { badge -> badge.wyPkt <= it.availablePoints ?: 0 }
                     val nonAchievableOrders =
@@ -105,6 +111,16 @@ class ManageBadgesFragment : Fragment(R.layout.manage_orders_fragment) {
             }
             .setNegativeButton(R.string.abort) { dialog, _ ->
                 dialog.cancel()
+            }
+        alertDialog.show()
+    }
+
+    private fun showNoBadgesAlertDialog() {
+        val alertDialog = AlertDialog.Builder(requireContext())
+        alertDialog
+            .setTitle(getString(R.string.no_badges_error))
+            .setPositiveButton(R.string.ok) { _, _ ->
+                findNavController().popBackStack()
             }
         alertDialog.show()
     }
