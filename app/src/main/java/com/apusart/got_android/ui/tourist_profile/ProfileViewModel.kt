@@ -1,6 +1,5 @@
 package com.apusart.got_android.ui.tourist_profile
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -18,7 +17,7 @@ class ProfileViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 userData.value = Resource.pending()
-                userData.value = userProfileRepository.getBookByOwner(id)
+                userData.value = userProfileRepository.getUserData(id)
             } catch (e: Exception) {
                 userData.value = Resource.error(e.message)
             }

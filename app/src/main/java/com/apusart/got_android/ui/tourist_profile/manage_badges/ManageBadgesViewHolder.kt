@@ -1,27 +1,33 @@
-package com.apusart.got_android.ui.tourist_profile.order_list
+package com.apusart.got_android.ui.tourist_profile.manage_badges
 
+import android.graphics.Color
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.apusart.got_android.R
 import com.apusart.got_android.api.models.Badge
 import com.apusart.got_android.api.models.BadgeLevel
 import com.apusart.got_android.api.models.BadgeType
-import com.apusart.got_android.api.models.Trip
 import kotlinx.android.synthetic.main.order_list_item.view.*
-import kotlinx.android.synthetic.main.trip_list_item.view.*
 
-class OrdersViewHolder(container: View) : RecyclerView.ViewHolder(container) {
-    fun bind(item: Badge, badgeTextBindFun: (Badge) -> String, onClickFun: (Int) -> Unit) {
+class ManageBadgesViewHolder(container: View) : RecyclerView.ViewHolder(container) {
+    fun bind(item: Pair<Badge, Int>, onClickFun: (Badge) -> Unit) {
 
         itemView.apply {
-            badge_image.setImageResource(getBadgeImage(item))
-            badge_string.text = badgeTextBindFun(item)
+            badge_image.setImageResource(getBadgeImage(item.first))
 
+            if (item.first.wyPkt > item.second) {
+                badge_string.setTextColor(resources.getColor(R.color.error_text_color))
+                badge_string.text = "${item.first.wyPkt - item.second} punktów do końca"
+            } else {
+                badge_string.setTextColor(resources.getColor(R.color.primary_900))
+                badge_string.text = "${item.first.wyPkt}/${item.first.wyPkt}"
+            }
             setOnClickListener {
-                onClickFun(item.id!!)
+                onClickFun(item.first)
             }
         }
     }
+
 
     private fun getBadgeImage(item: Badge) =
         when(setOf(BadgeType[item.rodzaj], BadgeLevel[item.stopien])) {

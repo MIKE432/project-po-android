@@ -43,6 +43,10 @@ class ProfileFragment : Fragment(R.layout.profile_main_fragment) {
         achievedOrdersSummary.setOnClickListener {
             findNavController().navigate(R.id.achievedOrdersFragment)
         }
+
+        achievedPointSummary.setOnClickListener {
+            findNavController().navigate(R.id.manageBadgesFragment)
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -53,10 +57,10 @@ class ProfileFragment : Fragment(R.layout.profile_main_fragment) {
                     val achievedOrders =
                         it?.odznaki?.filter { badge -> badge.dataPrzyznania != null }
 
-                    gained_points_profile_section_points.text = it?.punktacja.toString() ?: "Brak"
-                    textViewNumberTrips.text = it?.wycieczki?.size.toString() ?: "0"
-                    textViewNumberBadges.text = achievedOrders?.size.toString() ?: "0"
-                    profile_name.text = it?.imie + " " + it?.nazwisko ?: ""
+                    gained_points_profile_section_points.text = it?.punktacja.toString()
+                    textViewNumberTrips.text = it?.wycieczki?.size.toString()
+                    textViewNumberBadges.text = achievedOrders?.size.toString()
+                    profile_name.text = it?.imie + " " + it?.nazwisko
 
                     val lastTrip = it?.wycieczki?.last()
                     trips_profile_section_trip_name.text = lastTrip?.nazwa
@@ -66,16 +70,13 @@ class ProfileFragment : Fragment(R.layout.profile_main_fragment) {
                             "."
                         )
 
-                    var lastTripLength =
-                        lastTrip?.trasa?.odcinki?.fold(0.0) { acc, verifiedSegment -> acc + verifiedSegment.odcinek.dlugosc }
+                    val lastTripLength =
+                        lastTrip?.trasa?.odcinki?.fold(0.0) { acc, verifiedSegment -> acc + verifiedSegment.odcinek.dlugosc / 1000 }
 
-                    if (lastTripLength != null) {
-                        lastTripLength /= 1000
-                    }
 
                     trips_profile_section_trip_length.text = "%.2f".format(lastTripLength) + " km"
 
-                    ordersAdapter.submitList(achievedOrders)
+                    ordersAdapter.submitList(achievedOrders?.take(4))
                 })
 
         })

@@ -1,9 +1,6 @@
 package com.apusart.got_android.api.services
 
-import com.apusart.got_android.api.models.Segment
-import com.apusart.got_android.api.models.SegmentRequestBody
-import com.apusart.got_android.api.models.ToggleSegmentBody
-import com.apusart.got_android.api.models.Trip
+import com.apusart.got_android.api.models.*
 import com.apusart.got_android.api.tools.Defaults
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -32,11 +29,18 @@ interface MainApiService {
 
     @Multipart
     @POST("odcinki/")
-    suspend fun addSegment(@Part("nazwa") name: String, @Part("poczatek") start: Int, @Part("koniec") koniec: Int): Response<Unit>
+    suspend fun addSegment(
+        @Part("nazwa") name: String,
+        @Part("poczatek") start: Int,
+        @Part("koniec") koniec: Int
+    ): Response<Unit>
 
     @Multipart
     @POST("uczestnictwa/")
-    suspend fun joinTrip(@Part("turysta") touristId: Int, @Part("wycieczka") tripId: Int): Response<Unit>
+    suspend fun joinTrip(
+        @Part("turysta") touristId: Int,
+        @Part("wycieczka") tripId: Int
+    ): Response<Unit>
 
     @GET("ksiazeczki/byowner/{id}/details/")
     suspend fun getBookByOwnerId(@Path("id") id: Int): Response<Book>
@@ -46,6 +50,20 @@ interface MainApiService {
 
     @GET("punkty/details")
     suspend fun getPoints(): Response<List<Point>>
+
+    @GET("odznaki/manage/{id}/")
+    suspend fun getManageBadgesData(@Path("id") id: Int): Response<ManageBadgesData>
+
+    @Multipart
+    @POST("odznaki/manage/{id}/")
+    suspend fun addBadge(
+        @Path("id") touristId: Int,
+        @Part("wyPkt") reqPoints: Int,
+        @Part("czyRozp") isExamined: Boolean,
+        @Part("stopien") level: Int,
+        @Part("rodzaj") type: Int,
+        @Part("ksiazeczka") bookId: Int
+    ): Response<ManageBadgesData>
 }
 
 object RetrofitImpl {

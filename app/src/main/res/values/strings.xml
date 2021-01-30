@@ -18,7 +18,7 @@
     <string name="throw_changes_expl">Czy na pewno chcesz porzucić zmiany?</string>
     <string name="yes">Tak</string>
     <string name="abort">Anuluj</string>
-    
+
     <string name="segment_name"><i>nazwa</i>: <b>%1$s</b></string>
     <string name="segment_length"><i>długość</i>: <b>%1$s</b></string>
     <string name="segment_id"><i>identyfikator</i>: <b>%1$d</b></string>
@@ -44,5 +44,10 @@
     <string name="user_description">Jestem pasjonatem wspinaczki górskiej oraz chodzienia po szlakach polskich gór</string>
     <string name="date">Data</string>
     <string name="achieved_orders_number">Liczba zdobytych odznak</string>
+    <string name="achievable_orders_label">W tym roku możesz zdobyć:</string>
+    <string name="non_achievable_orders_label">Tyle punktów ci brakuje:</string>
+    <string name="gained_points_in_year">Zdobyte punkty w roku </string>
+    <string name="request_badge_text">Wyślij prośbę o przyznanie odznaki</string>
+    <string name="send">Wyślij</string>
 
 </resources>

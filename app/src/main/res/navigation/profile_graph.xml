@@ -18,6 +18,10 @@
             android:id="@+id/action_profileHome_to_achievedOrdersFragment"
             app:destination="@id/achievedOrdersFragment"
             app:popUpTo="@id/profileHome" />
+        <action
+            android:id="@+id/action_profileHome_to_manageBadgesFragment"
+            app:destination="@id/manageBadgesFragment"
+            app:popUpTo="@id/profileHome" />
     </fragment>
     <argument
         android:name="TouristId"
@@ -46,4 +50,8 @@
             android:name="tripId"
             app:argType="integer" />
     </fragment><action android:id="@+id/action_global_profileTripsDetailsFragment" app:destination="@id/profileTripsDetailsFragment"/>
+    <fragment
+        android:id="@+id/manageBadgesFragment"
+        android:name="com.apusart.got_android.ui.tourist_profile.manage_badges.ManageBadgesFragment"
+        android:label="ManageBadgesFragment" />
 </navigation>

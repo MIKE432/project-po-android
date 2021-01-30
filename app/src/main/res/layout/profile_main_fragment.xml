@@ -39,7 +39,7 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:textSize="20sp"
-                    android:text="0"
+                    android:text=""
                     android:background="@drawable/profile_rings"
                     android:gravity="center"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -79,7 +79,7 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:textSize="20sp"
-                    android:text="0"
+                    android:text=""
                     android:background="@drawable/profile_rings"
                     android:gravity="center"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -102,7 +102,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        tools:text="adsdsadsdsadsa" />
+                        tools:text="" />
 
                     <TextView
                         android:id="@+id/textView"
@@ -117,7 +117,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:gravity="center"
-                        tools:text="@string/user_description" />
+                        tools:text="" />
                 </LinearLayout>
 
                 <TextView
@@ -136,7 +136,7 @@
 
             <include layout="@layout/achieved_orders" android:id="@+id/achievedOrdersSummary"/>
 
-            <include layout="@layout/gained_points_profile_section" />
+            <include layout="@layout/gained_points_profile_section" android:id="@+id/achievedPointSummary"/>
 
             <include android:id="@+id/tripsSummary" layout="@layout/trips_profile_section" />
 
