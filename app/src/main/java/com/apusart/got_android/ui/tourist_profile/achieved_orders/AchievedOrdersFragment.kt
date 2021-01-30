@@ -23,7 +23,7 @@ import java.time.ZoneId
 class AchievedOrdersFragment : Fragment(R.layout.achieved_orders_fragment) {
     private val viewModel: ProfileViewModel by viewModels()
     private lateinit var ordersAdapter: OrdersAdapter
-    val userID = 2
+    private val userID = 2
 
 
     @RequiresApi(Build.VERSION_CODES.O)

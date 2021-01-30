@@ -23,6 +23,4 @@ class ProfileViewModel : ViewModel() {
             }
         }
     }
-
-
 }

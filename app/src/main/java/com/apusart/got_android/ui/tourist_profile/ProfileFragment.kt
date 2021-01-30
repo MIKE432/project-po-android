@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.trips_profile_section.*
 class ProfileFragment : Fragment(R.layout.profile_main_fragment) {
     private val viewModel: ProfileViewModel by viewModels()
     private lateinit var ordersAdapter: OrdersAdapter
-    val userID = 2
+    private val userID = 2
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -60,7 +60,7 @@ class ManageBadgesFragment : Fragment(R.layout.manage_orders_fragment) {
                     gained_points_label.text =
                         getString(R.string.gained_points_in_year) + " " + Year.now().value
 
-                    
+
                     if (it?.odznaki?.isEmpty() == true) {
                         showNoBadgesAlertDialog()
                     }
@@ -121,7 +121,7 @@ class ManageBadgesFragment : Fragment(R.layout.manage_orders_fragment) {
             .setTitle(getString(R.string.no_badges_error))
             .setPositiveButton(R.string.ok) { _, _ ->
                 findNavController().popBackStack()
-            }
+            }.setCancelable(false)
         alertDialog.show()
     }
 }
