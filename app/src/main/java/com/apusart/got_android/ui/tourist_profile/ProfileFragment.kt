@@ -23,6 +23,8 @@ class ProfileFragment : Fragment(R.layout.profile_main_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         ordersAdapter = OrdersAdapter(findNavController())
+        ordersAdapter.onClickFun =
+            { _ -> ordersAdapter.navController.navigate(R.id.achievedOrdersFragment) }
 
         achieved_orders_list.apply {
             adapter = ordersAdapter

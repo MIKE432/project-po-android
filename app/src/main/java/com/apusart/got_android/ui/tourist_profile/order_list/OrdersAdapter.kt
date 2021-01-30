@@ -22,6 +22,7 @@ open class OrdersAdapter(val navController: NavController) :
     }
 
     var textBindFun: (Badge) -> String = { "" }
+    var onClickFun: (Int) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrdersViewHolder {
         val container = LayoutInflater.from(parent.context)
@@ -34,6 +35,6 @@ open class OrdersAdapter(val navController: NavController) :
         holder.bind(
             getItem(position),
             badgeTextBindFun = textBindFun,
-            onClickFun = {})
+            onClickFun = onClickFun)
     }
 }
