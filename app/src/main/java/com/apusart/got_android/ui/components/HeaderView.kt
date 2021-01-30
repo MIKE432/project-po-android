@@ -10,7 +10,7 @@ import androidx.core.view.isVisible
 import com.apusart.got_android.R
 import kotlinx.android.synthetic.main.header.view.*
 
-class HeaderView(context: Context, attributeSet: AttributeSet): CardView(context, attributeSet) {
+class HeaderView(context: Context, attributeSet: AttributeSet) : CardView(context, attributeSet) {
     private val view = LayoutInflater.from(context)
         .inflate(R.layout.header, this, false)
 
@@ -57,11 +57,11 @@ class HeaderView(context: Context, attributeSet: AttributeSet): CardView(context
         addView(view)
     }
 
-    fun setOnLeadingIconClickListener(l:(View) -> Unit) {
+    fun setOnLeadingIconClickListener(l: (View) -> Unit) {
         view.header_leading_icon.setOnClickListener(l)
     }
 
-    fun setOnTrailingIconClickListener(l:(View) -> Unit) {
+    fun setOnTrailingIconClickListener(l: (View) -> Unit) {
         view.header_trailing_icon.setOnClickListener(l)
     }
 }

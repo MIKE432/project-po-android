@@ -34,7 +34,10 @@ class ProfileTripsDetailsFragment : Fragment(R.layout.done_trip_details) {
                     gained_points_profile_section_points.text = trip?.trasa?.sumaPunkt.toString()
                     doneTripName.text = trip?.nazwa
                     done_trip_fragment_date.text =
-                        trip?.dataPocz?.replace("-", ".") + " - " + trip?.dataKonc?.replace("-", ".")
+                        trip?.dataPocz?.replace("-", ".") + " - " + trip?.dataKonc?.replace(
+                            "-",
+                            "."
+                        )
 
                     var tripLength =
                         trip?.trasa?.odcinki?.fold(0.0) { acc, verifiedSegment -> acc + verifiedSegment.odcinek.dlugosc }

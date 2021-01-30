@@ -37,7 +37,8 @@ class ManageBadgesAdapter(val navController: NavController) :
 
     override fun onBindViewHolder(holder: ManageBadgesViewHolder, position: Int) {
         holder.bind(
-            getItem(position), onClickFun = itemOnClick)
+            getItem(position), onClickFun = itemOnClick
+        )
     }
 
 

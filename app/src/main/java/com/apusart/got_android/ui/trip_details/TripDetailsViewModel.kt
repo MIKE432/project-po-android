@@ -9,7 +9,7 @@ import com.apusart.got_android.api.repositories.TripRepository
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
-class TripDetailsViewModel: ViewModel() {
+class TripDetailsViewModel : ViewModel() {
     private val tripRepository = TripRepository()
     val trip = MutableLiveData<Resource<Trip>>()
     val joined = MutableLiveData<Resource<Unit>>()

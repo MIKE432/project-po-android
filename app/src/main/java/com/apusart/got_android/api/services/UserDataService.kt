@@ -24,6 +24,15 @@ class UserDataService {
         type: Int,
         bookId: Int
     ): Resource<ManageBadgesData> {
-        return performRequest { service.addBadge(touristId, reqPoints, isExamined, level, type, bookId) }
+        return performRequest {
+            service.addBadge(
+                touristId,
+                reqPoints,
+                isExamined,
+                level,
+                type,
+                bookId
+            )
+        }
     }
 }

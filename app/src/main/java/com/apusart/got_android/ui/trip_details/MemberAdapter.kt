@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.ListAdapter
 import com.apusart.got_android.R
 import com.apusart.got_android.api.models.Person
 
-class MemberAdapter(): ListAdapter<Person, MemberViewHolder>(diffUtil) {
+class MemberAdapter() : ListAdapter<Person, MemberViewHolder>(diffUtil) {
 
-    object diffUtil: DiffUtil.ItemCallback<Person>() {
+    object diffUtil : DiffUtil.ItemCallback<Person>() {
         override fun areItemsTheSame(oldItem: Person, newItem: Person): Boolean {
             return false
         }

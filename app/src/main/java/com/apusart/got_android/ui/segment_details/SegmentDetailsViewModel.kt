@@ -29,8 +29,10 @@ class SegmentDetailsViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val segmentId =
-                    segment.value?.data?.id ?: throw Exception("Nie udało się zmienić statusu odcinka")
-                val isActive = segment.value?.data?.czyAktywny ?: throw Exception("Nie udało się zmienić statusu odcinka")
+                    segment.value?.data?.id
+                        ?: throw Exception("Nie udało się zmienić statusu odcinka")
+                val isActive = segment.value?.data?.czyAktywny
+                    ?: throw Exception("Nie udało się zmienić statusu odcinka")
 
                 segment.value = Resource.pending()
 

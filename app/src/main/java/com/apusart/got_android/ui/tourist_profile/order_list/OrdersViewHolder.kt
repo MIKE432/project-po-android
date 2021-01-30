@@ -24,7 +24,7 @@ class OrdersViewHolder(container: View) : RecyclerView.ViewHolder(container) {
     }
 
     private fun getBadgeImage(item: Badge) =
-        when(setOf(BadgeType[item.rodzaj], BadgeLevel[item.stopien])) {
+        when (setOf(BadgeType[item.rodzaj], BadgeLevel[item.stopien])) {
             setOf(BadgeType.MALA, BadgeLevel.BRAZOWA) -> R.drawable.brazowa_mala
             setOf(BadgeType.MALA, BadgeLevel.SREBRNA) -> R.drawable.srebrna_mala
             setOf(BadgeType.MALA, BadgeLevel.ZLOTA) -> R.drawable.zlota_mala

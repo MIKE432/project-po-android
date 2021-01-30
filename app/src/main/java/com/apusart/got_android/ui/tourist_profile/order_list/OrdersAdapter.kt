@@ -21,7 +21,7 @@ open class OrdersAdapter(val navController: NavController) :
         }
     }
 
-    var textBindFun: (Badge) -> String = {""}
+    var textBindFun: (Badge) -> String = { "" }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrdersViewHolder {
         val container = LayoutInflater.from(parent.context)

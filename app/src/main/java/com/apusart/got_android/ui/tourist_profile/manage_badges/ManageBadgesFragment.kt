@@ -63,16 +63,27 @@ class ManageBadgesFragment : Fragment(R.layout.manage_orders_fragment) {
                         it?.odznaki?.filter { badge -> badge.wyPkt <= it.availablePoints ?: 0 }
                     val nonAchievableOrders =
                         it?.odznaki?.filter { badge -> badge.wyPkt > it.availablePoints ?: 0 }
-                    ordersAdapterAchievable.submitList(achievableOrders?.map { badge -> Pair(badge, it.availablePoints) })
-                    ordersAdapterNon.submitList(nonAchievableOrders?.map { badge -> Pair(badge, it.availablePoints) })
-                    ordersAdapterAchievable.itemOnClick = {badge -> showAlertDialog(badge, it?.ksiazeczka ?: 0) }
+                    ordersAdapterAchievable.submitList(achievableOrders?.map { badge ->
+                        Pair(
+                            badge,
+                            it.availablePoints
+                        )
+                    })
+                    ordersAdapterNon.submitList(nonAchievableOrders?.map { badge ->
+                        Pair(
+                            badge,
+                            it.availablePoints
+                        )
+                    })
+                    ordersAdapterAchievable.itemOnClick =
+                        { badge -> showAlertDialog(badge, it?.ksiazeczka ?: 0) }
                 })
         })
     }
 
 
     private fun getBadgeName(badge: Badge) =
-        when(setOf(BadgeType[badge.rodzaj], BadgeLevel[badge.stopien])) {
+        when (setOf(BadgeType[badge.rodzaj], BadgeLevel[badge.stopien])) {
             setOf(BadgeType.MALA, BadgeLevel.BRAZOWA) -> "Mała brązowa"
             setOf(BadgeType.MALA, BadgeLevel.SREBRNA) -> "Mała srebrna"
             setOf(BadgeType.MALA, BadgeLevel.ZLOTA) -> "Mała złota"
@@ -82,7 +93,7 @@ class ManageBadgesFragment : Fragment(R.layout.manage_orders_fragment) {
             setOf(BadgeType.WYTRWALOSC, BadgeLevel.MALA) -> "Za Wytrwałość mała"
             setOf(BadgeType.WYTRWALOSC, BadgeLevel.DUZA) -> "Za Wytrwałość duża"
             else -> "Popularna"
-    }
+        }
 
     private fun showAlertDialog(badge: Badge, bookId: Int) {
         val alertDialog = AlertDialog.Builder(requireContext())

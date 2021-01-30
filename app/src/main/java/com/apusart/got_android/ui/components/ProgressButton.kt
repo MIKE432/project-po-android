@@ -8,7 +8,8 @@ import androidx.constraintlayout.motion.widget.MotionLayout
 import com.apusart.got_android.R
 import kotlinx.android.synthetic.main.progress_button.view.*
 
-class ProgressButton(context: Context, attributeSet: AttributeSet): LinearLayout(context, attributeSet) {
+class ProgressButton(context: Context, attributeSet: AttributeSet) :
+    LinearLayout(context, attributeSet) {
     private val view = LayoutInflater.from(context)
         .inflate(R.layout.progress_button, this, false)
     var title = ""
@@ -29,9 +30,11 @@ class ProgressButton(context: Context, attributeSet: AttributeSet): LinearLayout
 
     init {
         addView(view)
-        context.theme.obtainStyledAttributes(attributeSet,
+        context.theme.obtainStyledAttributes(
+            attributeSet,
             R.styleable.ProgressButton,
-            0,0).apply {
+            0, 0
+        ).apply {
             val buttonTitle = getText(R.styleable.ProgressButton_button_name)
             val background = getDrawable(R.styleable.ProgressButton_android_background)
 

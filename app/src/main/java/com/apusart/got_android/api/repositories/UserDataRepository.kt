@@ -26,6 +26,6 @@ class UserDataRepository {
         type: Int,
         bookId: Int
     ): Resource<ManageBadgesData> {
-        return service.addBadge(touristId,reqPoints, isExamined, level, type, bookId)
+        return service.addBadge(touristId, reqPoints, isExamined, level, type, bookId)
     }
 }

@@ -24,8 +24,11 @@ interface MainApiService {
     @GET("wycieczki/{id}/details")
     suspend fun getTrip(@Path("id") id: Int): Response<Trip>
 
-    @PUT("odcinki/{id}/czyAktywny")
-    suspend fun toggleSegment(@Path("id") id: Int, @Body toggleSegmentBody: ToggleSegmentBody): Response<Segment>
+    @PUT("odcinki/{id}/czyAktywny/")
+    suspend fun toggleSegment(
+        @Path("id") id: Int,
+        @Body toggleSegmentBody: ToggleSegmentBody
+    ): Response<Segment>
 
     @Multipart
     @POST("odcinki/")
