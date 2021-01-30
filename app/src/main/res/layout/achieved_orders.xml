@@ -35,8 +35,9 @@
                 android:id="@+id/achieved_orders_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                android:orientation="vertical"
+                app:spanCount="4"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

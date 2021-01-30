@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.apusart.got_android.R
 import com.apusart.got_android.ui.join_trip.JoinTripActivity
 import com.apusart.got_android.ui.manage_segment.ManageSegmentActivity
+import com.apusart.got_android.ui.tourist_profile.TouristProfileActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -20,11 +21,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpButtons() {
         mateusz_pu09.setOnClickListener {
-            Toast.makeText(this, "mateusz_pu09", Toast.LENGTH_LONG).show()
+            startActivity(Intent(this, TouristProfileActivity::class.java))
         }
 
         mateusz_pu08.setOnClickListener {
-            Toast.makeText(this, "mateusz_pu08", Toast.LENGTH_LONG).show()
+            startActivity(Intent(this, TouristProfileActivity::class.java))
         }
 
         michal_pu10.setOnClickListener {

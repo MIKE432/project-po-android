@@ -12,8 +12,9 @@ class TripViewHolder(container: View) : RecyclerView.ViewHolder(container) {
             trip_list_item_name.text = item.nazwa
             trip_list_dates.text = "${item?.dataPocz} - ${item.dataKonc}"
             trip_list_map.segments = segments
-            trip_list_length.text =
-                segments.foldRight(0) { x, sum -> x.dlugosc.toInt() + sum }.toString() + "km"
+            val tripDistance = segments.foldRight(0.0) { x, sum -> x.dlugosc / 1000 + sum }
+
+            trip_list_length.text = "%.2f".format(tripDistance) + " km"
 
             setOnClickListener {
                 f(item.id)

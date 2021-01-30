@@ -13,7 +13,8 @@ import androidx.databinding.InverseBindingListener
 import com.apusart.got_android.R
 import kotlinx.android.synthetic.main.main_input.view.*
 
-class MainInput(context: Context, attributeSet: AttributeSet): LinearLayout(context, attributeSet) {
+class MainInput(context: Context, attributeSet: AttributeSet) :
+    LinearLayout(context, attributeSet) {
     val view = LayoutInflater.from(context)
         .inflate(R.layout.main_input, this, false)
     var text: String = ""
@@ -33,6 +34,7 @@ class MainInput(context: Context, attributeSet: AttributeSet): LinearLayout(cont
             view.main_input_cover.isVisible = value
             view.main_input_edit_text.isEnabled = !field
         }
+
     init {
         context.theme.obtainStyledAttributes(
             attributeSet,
@@ -46,7 +48,8 @@ class MainInput(context: Context, attributeSet: AttributeSet): LinearLayout(cont
             val gravity = getInt(R.styleable.MainInput_android_gravity, 0)
 
             if (editTextHeight != -4F)
-                view.main_input_edit_text.layoutParams = ConstraintLayout.LayoutParams(LayoutParams.MATCH_PARENT, editTextHeight.toInt())
+                view.main_input_edit_text.layoutParams =
+                    ConstraintLayout.LayoutParams(LayoutParams.MATCH_PARENT, editTextHeight.toInt())
 
             view.main_input_edit_text.imeOptions = imeOptions
             view.main_input_edit_text.inputType = inputType
@@ -66,13 +69,18 @@ class MainInput(context: Context, attributeSet: AttributeSet): LinearLayout(cont
     }
 
     companion object {
-        @InverseBindingAdapter(attribute = "app:main_input_input", event = "app:main_input_inputAttrChanged")
-        @JvmStatic fun setInput(view: MainInput): String {
+        @InverseBindingAdapter(
+            attribute = "app:main_input_input",
+            event = "app:main_input_inputAttrChanged"
+        )
+        @JvmStatic
+        fun setInput(view: MainInput): String {
             return view.view.main_input_edit_text.text.toString()
         }
 
         @BindingAdapter("app:main_input_inputAttrChanged")
-        @JvmStatic fun onInputAttributeChanged(view: MainInput, attrChange: InverseBindingListener?) {
+        @JvmStatic
+        fun onInputAttributeChanged(view: MainInput, attrChange: InverseBindingListener?) {
 
             view.main_input_edit_text.doOnTextChanged { text, start, before, count ->
                 attrChange ?: return@doOnTextChanged
@@ -82,7 +90,8 @@ class MainInput(context: Context, attributeSet: AttributeSet): LinearLayout(cont
         }
 
         @BindingAdapter("app:main_input_input")
-        @JvmStatic fun titleChanged(view: MainInput, value: String?) {
+        @JvmStatic
+        fun titleChanged(view: MainInput, value: String?) {
             value ?: return
             if (view.view.main_input_edit_text.text.toString() == value)
                 return

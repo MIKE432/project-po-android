@@ -7,7 +7,7 @@ import androidx.navigation.fragment.findNavController
 import com.apusart.got_android.R
 import kotlinx.android.synthetic.main.admin_panel.*
 
-class AdminPanel: Fragment(R.layout.admin_panel) {
+class AdminPanel : Fragment(R.layout.admin_panel) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupButtons()

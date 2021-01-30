@@ -22,8 +22,24 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
+                    android:id="@+id/textView4"
+                    style="@style/CaptionRoboto12Pt"
+                    android:layout_marginStart="19dp"
+                    android:text="@string/badges_label"
+                    android:layout_width="70dp"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="20dp"
+                    android:textAlignment="center"
+                    android:lineSpacingMultiplier="0.3"
+                    app:layout_constraintStart_toEndOf="@+id/photo_id"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewNumberBadges" />
+
+                <TextView
+                    android:id="@+id/textViewNumberBadges"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
+                    android:textSize="20sp"
+                    android:text=""
                     android:background="@drawable/profile_rings"
                     android:gravity="center"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -55,11 +71,15 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.6" />
+
                 </FrameLayout>
 
                 <TextView
+                    android:id="@+id/textViewNumberTrips"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
+                    android:textSize="20sp"
+                    android:text=""
                     android:background="@drawable/profile_rings"
                     android:gravity="center"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -82,9 +102,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        tools:text="adsdsadsdsadsa" />
+                        tools:text="" />
 
                     <TextView
+                        android:id="@+id/textView"
                         style="@style/CaptionRoboto12Pt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -94,17 +115,30 @@
                         android:id="@+id/profile_about"
                         style="@style/CaptionRoboto12PtBlack"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="55dp"
                         android:gravity="center"
-                        tools:text="Jestem pasjonatem wspinaczki górskiej oraz chodzienia po szlakach polskich gór" />
+                        tools:text="" />
                 </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textViewTripsLabel"
+                    style="@style/CaptionRoboto12Pt"
+                    android:layout_width="70dp"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="20dp"
+                    android:lineSpacingMultiplier="0.3"
+                    android:text="@string/trips_label"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toStartOf="@+id/photo_id"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewNumberTrips" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <include layout="@layout/achieved_orders" />
+            <include layout="@layout/achieved_orders" android:id="@+id/achievedOrdersSummary"/>
 
-            <include layout="@layout/gained_points_profile_section" />
+            <include layout="@layout/gained_points_profile_section" android:id="@+id/achievedPointSummary"/>
 
-            <include layout="@layout/trips_profile_section" />
+            <include android:id="@+id/tripsSummary" layout="@layout/trips_profile_section" />
 
             <TextView
                 style="@style/CaptionRoboto12Pt"

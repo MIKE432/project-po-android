@@ -7,7 +7,7 @@
     android:background="@color/container_background">
 
     <com.apusart.got_android.ui.components.HeaderView
-        android:id="@+id/profile_trips_fragment_header"
+        android:id="@+id/profile_orders_fragment_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:header_view_leading_icon="@drawable/back_icon128"
@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/profile_trips_fragment_header">
+        app:layout_constraintTop_toBottomOf="@id/profile_orders_fragment_header">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -43,7 +43,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/recent_trips"
+                android:text="@string/achieved_orders_number"
                 style="@style/CaptionRoboto12PtBlack"
                 android:gravity="center"
                 android:layout_marginTop="10dp"/>

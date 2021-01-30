@@ -20,6 +20,7 @@
         <activity android:name=".ui.manage_segment.ManageSegmentActivity" />
         <activity android:name=".ui.join_trip.JoinTripActivity" />
         <activity android:name=".ui.add_segment.AddSegmentActivity" />
+        <activity android:name=".ui.tourist_profile.TouristProfileActivity"/>
     </application>
 
 </manifest>
