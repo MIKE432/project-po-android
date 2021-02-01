@@ -42,7 +42,10 @@ class SegmentListFragment: Fragment() {
         setupObservers()
     }
 
-
+    override fun onResume() {
+        super.onResume()
+        viewModel.getSegments()
+    }
 
     private fun setupButtons() {
         segment_list_fragment_header.setOnLeadingIconClickListener {
@@ -54,14 +57,25 @@ class SegmentListFragment: Fragment() {
         }
     }
 
-
     private fun setupObservers() {
         viewModel.segments.observe(viewLifecycleOwner, { res ->
             handleResource(res,
             onSuccess = {
-                segmentAdapter.submitList(it)
+                filterSegments(viewModel.searchText.value)
             })
         })
+
+        viewModel.searchText.observe(viewLifecycleOwner, {
+            filterSegments(it)
+        })
+    }
+
+    private fun filterSegments(text: String?) {
+        if (text == "" || text == null) {
+            segmentAdapter.submitList(viewModel.segments.value?.data)
+        } else {
+            segmentAdapter.submitList(viewModel.segments.value?.data?.filter { segment -> segment.nazwa.contains(text)  })
+        }
     }
 
 }

@@ -18,6 +18,7 @@ class TripDetails : Fragment(R.layout.trip_details) {
     private val navArgs by navArgs<TripDetailsArgs>()
     private lateinit var alertDialog: AlertDialog.Builder
     private lateinit var memAdapter: MemberAdapter
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         memAdapter = MemberAdapter()

@@ -13,10 +13,10 @@ class SegmentViewHolder(container: View): RecyclerView.ViewHolder(container) {
             setOnClickListener {
                 onClickListener(item.id)
             }
-            val format = DecimalFormat("#####.###")
+            val format = DecimalFormat("#####")
             segment_list_item_id.text = resources.getString(R.string.segment_id, item.id)
             segment_list_item_is_active.text = resources.getString(R.string.segment_status, if(item.czyAktywny) "Otwarty" else "Zamknięty")
-            segment_list_item_length.text = resources.getString(R.string.segment_length, format.format(item.dlugosc) + "km")
+            segment_list_item_length.text = resources.getString(R.string.segment_length, format.format(item.dlugosc) + "m")
             segment_list_item_name.text = resources.getString(R.string.segment_name, item.nazwa)
             segment_list_item_title.text = item.koniec.grupa.nazwa
             segment_list_fragment_map.segments = listOf(item)

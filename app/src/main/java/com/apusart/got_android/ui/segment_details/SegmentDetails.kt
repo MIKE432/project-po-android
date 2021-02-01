@@ -9,6 +9,7 @@ import androidx.navigation.fragment.navArgs
 import com.apusart.got_android.R
 import com.apusart.got_android.api.models.handleResource
 import kotlinx.android.synthetic.main.segment_details.*
+import java.text.DecimalFormat
 
 class SegmentDetails : Fragment(R.layout.segment_details) {
     private val viewModel: SegmentDetailsViewModel by viewModels()
@@ -29,7 +30,9 @@ class SegmentDetails : Fragment(R.layout.segment_details) {
                     segment_details_region.text = it?.poczatek?.grupa?.nazwa ?: "Brak"
                     segment_details_name.text = it?.nazwa ?: "Brak"
                     segment_details_id.text = it?.id.toString()
-                    segment_details_length.text = it?.dlugosc.toString() + "km"
+
+                    val format = DecimalFormat("#####.###")
+                    segment_details_length.text = format.format(it?.dlugosc ?: 0.0)  + "km"
                     segment_details_start_point_id.text = it?.poczatek?.nazwa
                     segment_details_end_point_id.text = it?.koniec?.nazwa
 

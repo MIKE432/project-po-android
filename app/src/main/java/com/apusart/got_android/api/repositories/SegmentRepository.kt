@@ -9,10 +9,8 @@ import com.apusart.got_android.api.services.SegmentService
 class SegmentRepository {
     private val segmentService = SegmentService()
 
-    fun getSegments(): LiveData<Resource<List<Segment>>> {
-        return liveData {
-            emit(segmentService.getSegments())
-        }
+    suspend fun getSegments(): Resource<List<Segment>> {
+        return segmentService.getSegments()
     }
 
     suspend fun getSegment(segmentId: Int): Resource<Segment> {

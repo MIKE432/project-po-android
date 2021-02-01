@@ -54,11 +54,11 @@ class MapView(context: Context, attributeSet: AttributeSet) : View(context, attr
     }
 
     private fun drawSegment(canvas: Canvas?, activeSegment: Segment) {
-        val startX = activeSegment.poczatek.szerokoscGeo * mHeight
-        val startY = activeSegment.poczatek.dlugoscGeo * mWidth
+        val startX = (((activeSegment.poczatek.szerokoscGeo - 49.221295)/(49.294686 - 49.221295)) * mHeight)/1.1 + 2
+        val startY = (((activeSegment.poczatek.dlugoscGeo - 19.906059)/(20.005456 - 19.906059)) * mWidth)/1.1 + 15
 
-        val endX = activeSegment.koniec.szerokoscGeo * mHeight
-        val endY = activeSegment.koniec.dlugoscGeo * mWidth
+        val endX = (((activeSegment.koniec.szerokoscGeo - 49.221295)/(49.294686 - 49.221295)) * mHeight)/1.1 + 2
+        val endY = (((activeSegment.koniec.dlugoscGeo - 19.906059)/(20.005456 - 19.906059)) * mWidth)/1.1 + 15
 
         var currentX = startX
         var currentY = startY
